@@ -22,7 +22,7 @@ window.speechSynthesis.onvoiceschanged = () => {
         voiceOptions.appendChild(option);
     });
 
-    allLanguages = allVoices.map(voice => `${voice.name.split("-")[1]} - ${voice.lang.split("-")[0]}`);
+    allLanguages = allVoices.map(voice => `${voice.name.split("-")[1].replace(/\(.+\)/g, "")} - ${voice.lang.split("-")[0]}`);
     allLanguages = [...new Set(allLanguages)];
     allLanguages.forEach(language => {
         const option = document.createElement('option');
